@@ -19,6 +19,7 @@
 
            <!--Green Layout-->
            <RelativeLayout
+               android:layout_margin="@dimen/margin"
                android:layout_width="@dimen/icon"
                android:layout_height="@dimen/icon">
 
@@ -34,6 +35,7 @@
 
            <!--Green Layout-->
            <RelativeLayout
+               android:layout_margin="@dimen/margin"
                android:layout_width="@dimen/icon"
                android:layout_height="@dimen/icon">
 
@@ -62,6 +64,7 @@
 
             <!--Green layout-->
             <RelativeLayout
+                android:layout_margin="@dimen/margin"
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon">
 
@@ -77,6 +80,7 @@
 
             <!--Green layout-->
             <RelativeLayout
+                android:layout_margin="@dimen/margin"
                 android:layout_width="@dimen/icon"
                 android:layout_height="@dimen/icon">
 
