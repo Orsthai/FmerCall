@@ -1,6 +1,8 @@
 package masterkung.snru.ac.th.fmercall.fragment;
 
+import android.content.Intent;
 import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -34,6 +36,7 @@ public class MainFragment extends Fragment {
             public void onClick(View view) {
 
                 Log.d(tag, "You Click Image Station1");
+                callStation("1111");
 
             }
         });
@@ -59,7 +62,11 @@ public class MainFragment extends Fragment {
 
     public void callStation(String numderCall) {
 
-    }
+        Intent intent = new Intent(Intent.ACTION_CALL);
+        intent.setData(Uri.parse("tel:" + numderCall));
+        startActivity(intent);
+
+    }// callStation
 
     @Nullable
     @Override
