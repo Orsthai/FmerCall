@@ -57,12 +57,15 @@
 
                <!--Station2-->
                <ImageView
+                   android:id="@+id/imageViewstation2"
                    android:src="@drawable/station2"
                    android:layout_width="match_parent"
                    android:layout_height="match_parent" />
 
                <!--Title-->
                <TextView
+                   android:clickable="true"
+                   android:id="@+id/textViewStation2"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    android:layout_alignParentBottom="true"
@@ -100,12 +103,14 @@
 
                 <!--Station3-->
                 <ImageView
+                    android:id="@+id/imageViewstation3"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/station3" />
 
                 <!--Title-->
                 <TextView
+                    android:id="@+id/textViewStation3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
