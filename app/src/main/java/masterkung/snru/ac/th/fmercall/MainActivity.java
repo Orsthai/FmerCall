@@ -1,7 +1,6 @@
 package masterkung.snru.ac.th.fmercall;
 
 import android.content.res.Configuration;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -9,12 +8,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.HorizontalScrollView;
+import android.widget.TextView;
 
+import masterkung.snru.ac.th.fmercall.fragment.HospitalFragment;
 import masterkung.snru.ac.th.fmercall.fragment.MainFragment;
+
 
 public class MainActivity extends AppCompatActivity {
 
-//    Explicit
+    //    Explicit
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
 
@@ -24,11 +28,44 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        Police Controller
+        TextView policeTextView = findViewById(R.id.txtPolice);
+        policeTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contentMainFragment, new MainFragment()).commit();
+                drawerLayout.closeDrawers();
+            }
+        });
+
+
+
+//        Hospital Controller
+        TextView hospitalTextView = findViewById(R.id.txtHospital);
+        hospitalTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contentMainFragment, new HospitalFragment()).commit();
+                drawerLayout.closeDrawers();
+            }
+        });
+
+
+
+//        Insurance Controller
+
+
+//        Exit Controller
+
+
+
 //        Create Toolbar
         Toolbar toolbar = findViewById(R.id.toolbarMain);
         setSupportActionBar(toolbar);
-        getSupportActionBar() .setHomeButtonEnabled(true);
-        getSupportActionBar() .setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawerLayout = findViewById(R.id.drawerLayoutMain);
         actionBarDrawerToggle = new ActionBarDrawerToggle(
                 MainActivity.this,
@@ -39,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.setDrawerListener(actionBarDrawerToggle);
 
 
-//       Add Fragment
+//        Add Fragment
         if (savedInstanceState == null) {
 
             getSupportFragmentManager().beginTransaction()
@@ -48,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-    }    // Main Method
+    }   // Main Method
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -65,12 +102,14 @@ public class MainActivity extends AppCompatActivity {
         super.onConfigurationChanged(newConfig);
 
         actionBarDrawerToggle.onConfigurationChanged(newConfig);
+
     }
 
     @Override
-    public void onPostCreate(@Nullable Bundle savedInstanceState) {
+    protected void onPostCreate(@Nullable Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
         actionBarDrawerToggle.syncState();
+
     }
 }   // Main Class
